@@ -1,0 +1,20 @@
+apiVersion: kiket.dev/v1
+kind: Extension
+metadata:
+  key: kiket-ext-webhook
+  name: Generic Webhook Evidence Adapter
+  version: 1.0.0
+  description: Map arbitrary JSON payloads into normalized operational events and evidence via field mapping.
+spec:
+  sourceSystem: webhook
+  ingestionScopes:
+    - raw-events:write
+    - evidence:write
+  sourceEventTypes:
+    - inbound
+  evidenceTypes:
+    - webhook
+    - approval
+  retentionHints:
+    rawDays: 30
+    evidenceDays: 365
